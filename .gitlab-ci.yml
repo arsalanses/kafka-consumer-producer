@@ -1,0 +1,33 @@
+stages:
+  - build-producer
+  - build-consumer
+
+build-producer:
+  stage: build-producer
+  services:
+    - docker:23-dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - cd producer
+    - docker build -t "$CI_REGISTRY_IMAGE/producer:latest" .
+    - docker push "$CI_REGISTRY_IMAGE/producer:latest"
+  after_script:
+    - docker logout $CI_REGISTRY
+  only:
+    - master
+
+build-consumer:
+  stage: build-consumer
+  services:
+    - docker:23-dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - cd consumer
+    - docker build -t "$CI_REGISTRY_IMAGE/consumer:latest" .
+    - docker push "$CI_REGISTRY_IMAGE/consumer:latest"
+  after_script:
+    - docker logout $CI_REGISTRY
+  only:
+    - master
