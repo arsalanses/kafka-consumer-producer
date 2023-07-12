@@ -1,7 +1,6 @@
 from kafka import KafkaProducer
 from datetime import datetime
 import json
-import time
 import os
 
 kafka_server = os.environ.get('KAFKA_BOOTSTRAP_SERVERS', 'localhost:9092')
