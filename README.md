@@ -1,4 +1,9 @@
 # Kafka Producer and Consumer Example
+
+<p align="center">
+    <img src="./architecture.png" alt="diagram" width="65%">
+</p>
+
 This code provides an example of how to create a Kafka producer and consumer in Python using the kafka library. The producer generates fake messages with the current date and time and sends them to a Kafka topic. The consumer reads messages from the topic, extracts the date and time from the message, transforms it to a date string in RFC 3339 format, and sends the transformed message to another Kafka topic.
 
 ## Requirements
