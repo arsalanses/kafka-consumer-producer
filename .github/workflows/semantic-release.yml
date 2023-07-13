@@ -19,8 +19,8 @@ jobs:
       - name: Copy .releaserc
         run: cp .github/.releaserc .
 
-      - name: Install Dependencies
-        run: npm ci
+      # - name: Install Dependencies
+      #   run: npm ci
 
       - name: Release
         run: npx semantic-release
