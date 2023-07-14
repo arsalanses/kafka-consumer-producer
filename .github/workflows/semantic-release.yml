@@ -31,9 +31,9 @@ jobs:
         run: cp .github/.releaserc.yml .
 
       - name: Npm install
-        run: npm i -g @semantic-release/changelog
+        run: npm i -g semantic-release @semantic-release/changelog @semantic-release/git
 
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npx semantic-release
+        run: semantic-release
