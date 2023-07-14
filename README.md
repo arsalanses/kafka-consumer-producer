@@ -5,7 +5,9 @@
 </p>
 
 This code provides an example of how to create a Kafka producer and consumer in Python using the kafka library. The producer generates fake messages with the current date and time and sends them to a Kafka topic. The consumer reads messages from the topic, extracts the date and time from the message, transforms it to a date string in RFC 3339 format, and sends the transformed message to another Kafka topic.
-
+```
+This project uses semantic-release to automate the release process. Semantic-release analyzes commit messages to determine the appropriate version number and automatically generates changelogs and releases.
+```
 ## Requirements
 - Python 3.x
 - kafka library
